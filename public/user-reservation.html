@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店预约</title>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <style>
+        html,body {
+        margin: 0;
+        padding: 0;
+        }
+
+        .background {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="login_form" class="form" style="margin-top: 10%;">
+        <h1>酒店预约表单</h1>
+        <form class="login-form">
+            <label for="name">个人信息</label>
+          <input type="text" placeholder="姓名" id="name"/>
+          <input type="text" placeholder="身份证号" id="id"/>
+          <select name="sex" id="sex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+          <input type="tel" placeholder="电话" id="tel"/>
+          <label for="date">预期时间</label>
+          <input type="date" placeholder="到店日期" id="date"/>
+          <!-- 只记录日期 时间不记录 -->
+          <input type="time" placeholder="预期到店时间" id="time"/>
+          <button type="submit">确认提交</button>
+        </form>
+      </div>
+
+    <canvas class="background"></canvas>
+    <script src="Js/particles.js"></script>
+    <script>
+        window.onload = function() {
+  Particles.init({
+    selector: '.background',
+    connectParticles: true,
+    color: '#E9896A'
+  });
+};
+    </script>
+</body>
+</html>

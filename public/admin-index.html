@@ -1,0 +1,380 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>酒店前台管理系统</title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>XXX</strong> <small>酒店前台管理系统</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+     
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="admin-pwd.html"><span class="am-icon-circle-o-notch am-icon-spin"></span> 修改密码</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 注销</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="admin-index.html"><span class="am-icon-home"></span> 酒店管理首页</a></li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 功能模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+            <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 客户入住</a></li>
+            <li><a href="admin-room.html" class="am-cf"><span class="am-icon-check"></span> 客房管理</a></li>
+            <li><a href="admin-roomclass.html" class="am-cf"><span class="am-icon-check"></span> 房间类别管理</a></li>
+            <li><a href="admin-customer.html" class="am-cf"><span class="am-icon-check"></span> 客户管理</a></li>
+            <li><a href="admin-list.html" class="am-cf"><span class="am-icon-check"></span> 入住记录管理</a></li>
+            <li><a href="admin-multiple.html" class="am-cf"><span class="am-icon-check"></span> 多管理员设置</a></li>
+            <li><a href="admin-log.html"><span class="am-icon-calendar"></span> 操作记录日志</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> 公告</p>
+          <p>时光静好，与君语；细水流年，与君同。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">酒店管理首页</strong> / <small>经营状况</small></div>
+    </div>
+
+    <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
+      <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-home"></span><br/>入住总人次<br/>428</a></li>
+      <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>预约今天到店人数<br/>428</a></li>
+      <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>即将离店人数<br/>3</a></li>
+      <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>当前入住人数<br/>67</a></li>
+    
+    </ul>
+
+
+        <!-- 退房 start -->
+        <div class="am-g">
+          <div class="am-u-sm-12">
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-out'}">退房<span class="am-icon-chevron-down am-fr" ></span></div>
+          <div class="am-panel-bd am-collapse am-in" id="collapse-panel-out">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+                <tr>
+                  <th class="table-check"></th>
+                  <th class="table-title">房间号</th>
+                  <th class="table-title">客人姓名</th>
+                  <th class="table-title">客人身份证号</th>
+                  <th class="table-date am-hide-sm-only">入住时间</th>
+                  <th class="table-date am-hide-sm-only">预期离店时间</th>
+                  <th class="table-set">操作</th>
+                  <!-- 预期离店时间为客户入住登记时所录入的时间 且默认为下午15:00:00 -->
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td>101</td>
+                <td class="am-hide-sm-only">Same</td>
+                <td class="am-hide-sm-only">00000000000</td>
+                <td class="am-hide-sm-only">2020/09/01 10:30:21</td>
+                <td class="am-hide-sm-only">2020/09/03 15:00:00</td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="out(1)"> 提前退房</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>101</td>
+                <td class="am-hide-sm-only">Same</td>
+                <td class="am-hide-sm-only">00000000000</td>
+                <td class="am-hide-sm-only">2020/09/01 10:30:21</td>
+                <td class="am-hide-sm-only">2020/09/03 15:00:00</td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="out(1)"> 提前退房</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>101</td>
+                <td class="am-hide-sm-only">Same</td>
+                <td class="am-hide-sm-only">00000000000</td>
+                <td class="am-hide-sm-only">2020/09/01 10:30:21</td>
+                <td class="am-hide-sm-only">2020/09/03 15:00:00</td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="out(1)"> 提前退房</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+  
+            </tbody>
+          </table>
+            
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+        <!-- 退房 end -->
+   
+    <!-- 房间详情图表 start -->
+    <div class="am-g">
+      <div class="am-u-sm-12">
+    <div class="am-panel am-panel-default">
+      <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-room'}">房间详情<span class="am-icon-chevron-down am-fr" ></span></div>
+      <div class="am-panel-bd am-collapse am-in" id="collapse-panel-room" style="height: 400px;">
+        <div id="roomChart" style="width: 100%;height: 100%; margin-top: 5%;">
+          
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    <!-- 房间详情图表 end -->
+
+    <!-- 今日经营状况 start -->
+    <div class="am-g">
+      <div class="am-u-md-6">
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-Operat'}">近日经营情况<span class="am-icon-chevron-down am-fr" ></span></div>
+          <div class="am-panel-bd am-collapse am-in" id="collapse-panel-Operat" style="height: 400px;">
+            <div id="OperatChart" style="width: 100%;height: 100%;margin-top: 5%;">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-u-md-6">
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-Holder'}">近日入住情况<span class="am-icon-chevron-down am-fr" ></span></div>
+          <div id="collapse-panel-Holder" class="am-panel-bd am-collapse am-in" style="height: 400px;">
+            <div id="holderChart" style="width: 100%;height: 100%;margin-top: 5%;">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 今日经营状况 end -->
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">
+  <span class="am-icon-btn am-icon-th-list"></span>
+</a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© XX酒店前台管理系统</p>
+</footer>
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="Js/echarts.min.js"></script>
+
+<script>
+  function out(id) {
+    x = confirm("确定退房嘛？");
+    if (x==true){
+
+    }else{
+      
+    }
+  }
+  
+</script>
+
+<!-- 近日经营情况 -->
+<script type="text/javascript">
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('OperatChart'));
+
+  // 指定图表的配置项和数据
+  var optionO = {
+      title: {
+          text: '近日经营情况'
+      },
+      tooltip: {},
+      legend: {
+          data:['CNY']
+      },
+      xAxis: {
+          data: ["09/01","09/02","09/03","09/04","09/05"]
+      },
+      yAxis: {},
+      series: [{
+          name: 'CNY',
+          type: 'bar',
+          data: [9000, 8881, 7897, 3506, 4601]
+      }]
+  };
+
+  // 使用刚指定的配置项和数据显示图表。
+  myChart.setOption(optionO);
+</script>
+<!-- 近日入住人数 -->
+<script type="text/javascript">
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('holderChart'));
+
+  // 指定图表的配置项和数据
+  var optionO = {
+      title: {
+          text: '近日入住情况'
+      },
+      tooltip: {},
+      legend: {
+          data:['人数']
+      },
+      xAxis: {
+          data: ["09/01","09/02","09/03","09/04","09/05"]
+      },
+      yAxis: {},
+      series: [{
+          name: '人数',
+          type: 'line',
+          data: [30, 20, 26, 22, 17]
+      }]
+  };
+
+  // 使用刚指定的配置项和数据显示图表。
+  myChart.setOption(optionO);
+</script>
+<!-- 当前房间实时数据 -->
+<script>
+  var myChart = echarts.init(document.getElementById('roomChart'));
+var Room = ['1','2','3','4','5','6','7','8','9'];
+var Floor = ['一楼', '二楼', '三楼','四楼', '五楼'];
+var data = [[0,0,0],[1,1,1],[0,3,1],[2,4,1]];
+
+data = data.map(function (item) {
+    return [item[1], item[0], item[2] || '-'];
+});
+
+option = {
+    color:['#87CEFA'],
+    legend: {
+        orient: 'vertical',
+        x:'left',
+        y:'top',
+        padding:[0,0,0,0],
+        data: ['可入住房间']
+    },
+    tooltip: {
+        position: 'top'
+    },
+    animation: true,
+    grid: {
+        height: '50%',
+        top: '10%'
+    },
+    xAxis: {
+        name:'房间号',
+        type: 'category',        
+        data: Room,
+        splitArea: {
+            show: true
+        }
+    },
+    yAxis: {
+        name:'楼层',
+        type: 'category',
+        data: Floor,
+        splitArea: {
+            show: true
+        }
+    },
+    visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: '15%'
+    },
+    series: [{
+        name: '可入住房间',
+        type: 'heatmap',
+        data: data,
+        label: {
+            show: false
+        },
+        emphasis: {
+            itemStyle: {
+                shadowBlur: 10,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'                              
+            }
+        }
+    }]
+};
+myChart.setOption(option);
+</script>
+</body>
+</html>
