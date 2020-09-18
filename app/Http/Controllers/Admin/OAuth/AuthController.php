@@ -115,7 +115,5 @@ class AuthController extends Controller
     }
 
 
-    public function test(){
-        echo auth()->id();
-    }
+
 }
