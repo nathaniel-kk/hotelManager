@@ -62,7 +62,7 @@ class CustManageController extends Controller
      */
     public function deleteInfo(Request $request){
             $rs = CustInfo::SerchbID($request['id']);
-            Log::custdel($rs);
+            log::custdel($rs);
 
          $t1 = CustInfo::deleteinfo($request['id']);
          $t2 = Reservation::deletetime($request['id']);

@@ -35,6 +35,4 @@ Route::prefix('dc')->namespace('DC')->group(function (){
     Route::get('getAll','InRecordController@getAll');//获取所有入住记录
     Route::post('delInfo','InRecordController@delInfo');//删除用户记录
     Route::post('SearchByName','InRecordController@SearchByName');//搜索用户入住记录
-
-
 });

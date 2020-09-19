@@ -19,17 +19,13 @@ class CustInfo extends Model
     public static function Add($date){
 
 
-
         $rs = CustInfo::create([
             'name' => $date['name'],
             'tel' => $date['phone_number'],
-            'id_code' => $date['ID'],
+            'id_code' => $date['id'],
         ]);
        return $rs['cust_id'];
-
-
     }
-
     /**
      * 获取客户信息
      */

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ChekInRequest extends FormRequest
 {
@@ -30,6 +32,15 @@ class ChekInRequest extends FormRequest
             'day'=>'required',
             'name'=>'required|min:2'
         ];
+    }
+
+
+    /**
+     * @param Validator $validator
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        throw (new HttpResponseException(response()->fail(422, '参数错误!', $validator->errors()->all(), 422)));
     }
 
 }
