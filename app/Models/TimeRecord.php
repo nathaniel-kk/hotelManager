@@ -48,4 +48,57 @@ class TimeRecord extends Model
         }
         return $data;
     }
+
+    //获取近日经营情况
+    Public static function getDateMoney(){
+        $data = DB::table('check_record')
+            ->Join('time_record','time_record.time_id','=','check_record.time_id')
+            ->Join('room_info','room_info.room_id','=','check_record.room_id')
+            ->Join('room_class','room_info.class_id','=','room_class.class_id')
+            ->select('check_record.id','time_record.in_time','room_info.room_id','room_class.price')
+            ->distinct('check_record.id')
+            ->get();
+
+        $num = $data->count('id');
+        $date =array();
+        $i = array();
+        $j = array();
+        for ($b = 0; $b < 5; $b++) {
+            $count = 0;
+            for ($a = 0; $a < $num; $a++) {
+                if ($data[$a]->in_time > date("Y-m-d"." 00:00:00", time() - $b * 24 * 60 * 60) && $data[$a]->in_time < date("Y-m-d"." 23:59:59", time() - $b * 24 * 60 * 60)) {
+                    $count += $data[$a]->price;
+                }
+            }
+            $c = 0;
+            $i[$b][$c]=date("m-d", time() - $b * 24 * 60 * 60);
+            $j[$b][$c]=$count;
+            $date[$b]['in_time'] =  $i[$b][$c];
+            $date[$b]['money'] =  $j[$b][$c];
+        }
+        return $date;
+    }
+
+    //获取近日入住情况
+    Public static function getDateUser (){
+        $data =array();
+        $i = array();
+        $j = array();
+
+        for($b=0;$b<5;$b++){
+            $number = 0;
+            foreach (TimeRecord::pluck('in_time') as $date) {
+                if ($date > date("Y-m-d"." 00:00:00", time() - $b * 24 * 60 * 60) && $date < date("Y-m-d"." 23:59:59", time() - $b * 24 * 60 * 60)) {
+                    $number++;
+                }
+            }
+            $a = 0;
+            $i[$b][$a]=date("m-d", time() - $b * 24 * 60 * 60);
+            $j[$b][$a]=$number;
+            $data[$b]['in_time'] =  $i[$b][$a];
+            $data[$b]['number'] =  $j[$b][$a];
+            $a++;
+        }
+            return $data;
+    }
 }

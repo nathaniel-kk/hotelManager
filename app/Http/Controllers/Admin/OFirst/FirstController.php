@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\OFirst;
 use App\Http\Controllers\Controller;
 use App\Models\CheckRecord;
 use App\Models\CustInfo;
+use App\Models\Log;
 use App\Models\Reservation;
 use App\Models\TimeRecord;
 use Illuminate\Http\Request;
@@ -55,10 +56,14 @@ class FirstController extends Controller
     //用户提前退房
     Public function UserEarlyLeave(Request $request){
         $id_code = $request['id_code'];
-        $data = TimeRecord::UserEarlyLeave($id_code);
-        return $data?
-            response()->success(200, '退房成功!', null) :
-            response()->fail(100, '退房失败!', null);
+        if(strlen($id_code)==11){
+            $data = TimeRecord::UserEarlyLeave($id_code);
+            $res = Log::EarlyLeaveDate($id_code);
+            return $data&&$res?
+                response()->success(200, '退房成功!', null) :
+                response()->fail(100, '退房失败!', null);
+        }
+        return response()->fail(100, '身份证号错误!', null);
     }
 
     //获取可入住房间
@@ -71,20 +76,18 @@ class FirstController extends Controller
 
     //获取近日经营情况
     Public function getDateMoney(){
-        $data = DB::table('check_record')
-            ->Join('time_record','time_record.time_id','=','check_record.time_id')
-            ->Join('room_info','room_info.room_id','=','check_record.room_id')
-            ->Join('room_class','room_info.class_id','=','room_class.class_id')
-            ->select('check_record.id','time_record.in_time','room_info.room_id','room_class.price')
-            ->distinct('check_record.id')
-         //   ->sum('room_class.price');
-        ->get();
+        $data = TimeRecord::getDateMoney();
+        return $data?
+            response()->success(200, '获取成功!', $data) :
+            response()->fail(100, '获取失败!', null);
+    }
 
-        $sum = 0;
-        foreach ($data as $v){
-            $sum += $v['price'];
-        }
-        echo $sum;
-        die();
+
+    //获取近日入住情况
+    Public function getDateUser(){
+        $data = TimeRecord::getDateUser();
+        return $data?
+            response()->success(200, '获取成功!', $data) :
+            response()->fail(100, '获取失败!', null);
     }
 }
