@@ -56,6 +56,18 @@ CREATE TABLE IF NOT EXISTS `cust_info` (
 /*!40000 ALTER TABLE `cust_info` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cust_info` ENABLE KEYS */;
 
+-- Dumping structure for table hotelmanager.log
+CREATE TABLE IF NOT EXISTS `log` (
+  `log_id` int(11) NOT NULL COMMENT 'log编号',
+  `type` varchar(50) NOT NULL DEFAULT '0' COMMENT '0是新增等 1是删除等',
+  `info` text NOT NULL COMMENT 'info',
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table hotelmanager.log: ~0 rows (大约)
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+
 -- Dumping structure for table hotelmanager.reservation
 CREATE TABLE IF NOT EXISTS `reservation` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '记录编号',
@@ -144,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `time_record` (
   `time_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '事件记录编号',
   `in_time` timestamp NOT NULL COMMENT '入住时间',
   `out_time` timestamp NOT NULL COMMENT '预期离店时间',
-  `res_time` timestamp NOT NULL COMMENT '实际离店时间',
+  `res_time` timestamp NULL DEFAULT NULL COMMENT '实际离店时间',
   PRIMARY KEY (`time_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
